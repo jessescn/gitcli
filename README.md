@@ -1,16 +1,21 @@
-## gitCLI
+# GitCLI
 
-Its a simple cli to get some informations about users of github, this project is made just for learning proposal (click python and flask)
+Its a simple cli to get some informations about users of github, this project is made just for learning proposal (**Click**  and **Flask**)
 
-## using cli
+## Installation configs
 
 First, its necessary install the virtualenv
 
-### Commands
+```bash
+sudo apt-get install virtualenv
+```
+So then, **clone the repository** and execute this commands
 
-1 . env/bin/activate
-2 cd backend/
-3 python server.js
-4 cd ../cli/ 
-5 pip install --editable .
-6 gitcli [OPTIONS] COMMAND [ARGS]
+``` bash
+$ . env/bin/activate
+$ cd backend/
+$ python server.js
+$ cd ../cli/ 
+$ pip install --editable .
+$ gitcli [OPTIONS] COMMAND [ARGS]
+```
