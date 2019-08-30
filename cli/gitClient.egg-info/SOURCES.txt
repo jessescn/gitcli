@@ -1,0 +1,8 @@
+gitClient.py
+setup.py
+gitClient.egg-info/PKG-INFO
+gitClient.egg-info/SOURCES.txt
+gitClient.egg-info/dependency_links.txt
+gitClient.egg-info/entry_points.txt
+gitClient.egg-info/requires.txt
+gitClient.egg-info/top_level.txt
