@@ -15,7 +15,14 @@ def followersInfo(dev):
 def devInfo(user):
     response  = requests.get('https://api.github.com/users/%s' % user).json()
     return jsonify(response), 200
-    
+
+
+@app.route('/user/<string:user>/following/<string:user2>', methods=['GET'])
+def is_following(user, user2):
+    response = requests.get('https://api.github.com/users/%s/following/%s'  % (user, user2)).status_code
+
+    return jsonify(response), 200
+
 if __name__ == '__main__':
     app.run(debug=True)
 

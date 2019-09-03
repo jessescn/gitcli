@@ -11,6 +11,7 @@ def cli():
 
         Is a simple cli for github
     """
+    pass
 
 @cli.command('followers')
 @click.argument('username', type=str)
@@ -36,3 +37,16 @@ def user_infos(username):
     click.echo('- Is following %s users' % user['following'])
     click.echo('- Have %s followers' % user['followers'] )
 
+@cli.command('following')
+@click.argument('user1', type=str, required=True)
+@click.argument('user2', type=str, required=True)
+def checking_follow(user1, user2):
+    """Checks and returns if a user is following other"""
+
+    is_following = requests.get(base_url+'/user/%s/following/%s' % (user1, user2)).json()
+
+    if(is_following == 204):
+        click.echo('%s is following %s' % (user1, user2))
+    
+    elif(is_following == 404):
+        click.echo('%s is not following %s' % (user1, user2))
