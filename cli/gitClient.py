@@ -22,9 +22,9 @@ def followers(username):
     click.echo('%s have %s followers' % (username, followers))
 
 
-def write_to_json_file(path, fileName, data):
-    file_name = './' + path + '/' + fileName + '.json' 
-    with open(file_name, 'w') as fp:
+def write_to_json_file(path, file_name, data):
+    file_path = './' + path + '/' + file_name + '.json' 
+    with open(file_path, 'w') as fp:
         json.dump(data, fp)
 
 @cli.command('info') 
@@ -43,7 +43,6 @@ def user_infos(username):
     click.echo('- Is following %s users' % user['following'])
     click.echo('- Have %s followers' % user['followers'] )
 
-    user['name'] = "Joaquin"
     path = '../infos'
     file_name = "%s" % user['login']
     write_to_json_file(path, file_name, user) 
