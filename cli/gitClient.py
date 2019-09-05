@@ -1,5 +1,6 @@
 import click
 import requests
+import json
 
 base_url = "http://localhost:5000"
 
@@ -21,6 +22,11 @@ def followers(username):
     click.echo('%s have %s followers' % (username, followers))
 
 
+def write_to_json_file(path, fileName, data):
+    file_name = './' + path + '/' + fileName + '.json' 
+    with open(file_name, 'w') as fp:
+        json.dump(data, fp)
+
 @cli.command('info') 
 @click.argument('username', type=str)
 def user_infos(username):
@@ -37,6 +43,12 @@ def user_infos(username):
     click.echo('- Is following %s users' % user['following'])
     click.echo('- Have %s followers' % user['followers'] )
 
+    user['name'] = "Joaquin"
+    path = '../infos'
+    file_name = "%s" % user['login']
+    write_to_json_file(path, file_name, user) 
+
+
 @cli.command('following')
 @click.argument('user1', type=str, required=True)
 @click.argument('user2', type=str, required=True)
@@ -50,3 +62,4 @@ def checking_follow(user1, user2):
     
     elif(is_following == 404):
         click.echo('%s is not following %s' % (user1, user2))
+
