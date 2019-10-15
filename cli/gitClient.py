@@ -62,3 +62,5 @@ def checking_follow(user1, user2):
     elif(is_following == 404):
         click.echo('%s is not following %s' % (user1, user2))
 
+if __name__ ==  "__main__":
+    cli()

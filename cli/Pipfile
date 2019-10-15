@@ -11,3 +11,6 @@ click = "*"
 
 [requires]
 python_version = "3"
+
+[scripts]
+gitcli ="python3 gitClient.py"
